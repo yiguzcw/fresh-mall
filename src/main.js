@@ -5,6 +5,8 @@ import store from './store/'
 import VueLazyload from 'vue-lazyload'
 // import VueCookie from 'vue-cookie'
 // import { userInfo } from './api'
+// 缓存的用户信息
+import { getStore } from '/utils/storage.js'
 
 //
 import ElementUI from 'element-ui'
@@ -32,7 +34,6 @@ Vue.use(VueLazyload, {
 Vue.use(MintUI)
 Vue.config.productionTip = false
 
-import { getStore } from '/utils/storage.js'  // 缓存的用户信息
 const whiteList = ['home', 'register', 'login', 'area', 'category', 'shopnav', 'goodsDetails'] // 不需要登陆的页面
 router.beforeEach(function (to, from, next) {
   let userInfo = JSON.parse(getStore('userInfo'))
@@ -48,7 +49,10 @@ router.beforeEach(function (to, from, next) {
     } else {
       // store.commit('RECORD_USERINFO', {info: userInfo.result})
       if (to.path === '/login') { //  跳转到
-        next({path: '/'})
+        let abc = {
+          path: '/'
+        }
+        next(abc)
       }
       next()
     }
