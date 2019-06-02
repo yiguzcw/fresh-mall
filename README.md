@@ -8,9 +8,9 @@ vue2 + vuex + vue-router + webpack + ES6 + axios + sass + flex
 
 cd vue-mall
 
-yarn install
+cnpm i
 
-yarn start
+npm run dev
 
 ```
 
